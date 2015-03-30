@@ -7,6 +7,11 @@ a {
   color: #00B7FF;
 }
 
+a:hover {
+  text-decoration: bold;
+  color: #ff0080;
+}
+
 .note {
   font-size: 10px;
 }
