@@ -1,2 +1,2 @@
 # baseline
-Baseline visulisation
+Baseline visualisation
