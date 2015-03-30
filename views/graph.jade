@@ -1,0 +1,18 @@
+extends layout
+
+block content
+  h1= title
+  p Visualisation of the agent baseline functionality. Pick a data plot to view. Adjust the sample period to see how the baseline reacts.
+  p
+    a(href="/") Home
+
+  div
+    form
+      label.label Plot
+      select#dataSel(ng-model="dataSel" ng-options="opt.text for opt in dataOpts" ng-change="selectData()")
+      label.label Period
+      select#periodSel(ng-model="periodSel" ng-options="opt.text for opt in periodOpts" ng-change="selectData()")
+
+  // The plot will be here
+  div#graph
+  p.note {{zoomNote}}

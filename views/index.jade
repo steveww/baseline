@@ -1,0 +1,30 @@
+extends layout
+
+block content
+  h1= title
+  p This application provides a visualisation of the agent baseline functionality. The agent baseline is maintained by the agent and is configured via Configure -> Slow Transaction Thresholds. The default setting is 2 hours, which means the agent uses the last 2 hours of data to run a moving average through to calculate
+    i  normal.
+
+  p If you want to know more about the maths behind the calculations see Wikipedia 
+    a(href="http://en.wikipedia.org/wiki/Algorithms_for_calculating_variance" target="_blank") article on variance
+    |  and 
+    a(href="http://en.wikipedia.org/wiki/Moving_average" target="_blank") this one on moving average
+
+  p This application is written using 
+    a(href="http://nodejs.org/" target="_blank") Node.js
+    |  with the 
+    a(href="http://expressjs.com/") Express
+    |  framework and 
+    a(href="http://jade-lang.com/" target="_blank") Jade
+    |  template engine.
+    |  The browser presentation uses 
+    a(href="http://angularjs.org/" target="_blank") Angularjs
+    |  with 
+    a(href="http://c3js.org/" target="_blank") C3JS
+    |  graphs which is an abstraction layer on top of 
+    a(href="http://d3js.org/" target="_blank") D3
+    |  Finally the application is hosted in the cloud on 
+    a(href="http://heroku.com/" target="_blank") Heroku
+
+  p
+    a(href="graph") Continue...
