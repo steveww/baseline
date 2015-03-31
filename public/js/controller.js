@@ -26,15 +26,20 @@ baseline.controller('baseform', function($scope, $http) {
   ];
   $scope.periodSel = $scope.periodOpts[2];
 
+  $scope.tailSel = false;
 
   // Event handlers
   $scope.selectData = function() {
-    console.log("selectData called");
+    console.log('selectData called');
     var dataType = $scope.dataSel.val;
     var period = $scope.periodSel.val;
-    // console.log('Type ' + dataType + ' Period ' + period);
+    // console.log('Type ' + dataType + ' Period ' + period + 'tail ' + $scope.tailSel);
 
-    $http.get('/rest/' + dataType + '/' + period).success(function(datapoints) {
+    if(! dataType) {
+      return;
+    }
+
+    $http.get('/rest/' + dataType + '/' + period + '/' + $scope.tailSel).success(function(datapoints) {
       var chart = c3.generate({
         'bindto': '#graph',
         'data': {

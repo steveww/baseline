@@ -12,6 +12,8 @@ block content
       select#dataSel(ng-model="dataSel" ng-options="opt.text for opt in dataOpts" ng-change="selectData()")
       label.label Period
       select#periodSel(ng-model="periodSel" ng-options="opt.text for opt in periodOpts" ng-change="selectData()")
+      label.label Long Tail
+      input(type="checkbox" ng-model="tailSel" ng-change="selectData()")
 
   // The plot will be here
   div#graph
