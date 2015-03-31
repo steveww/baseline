@@ -86,6 +86,35 @@ router.get('/bump/:p', function(req, res, next) {
   res.json(datapoints);
 });
 
+router.get('/noise/:p', function(req, res, next) {
+  var period = req.params.p;
+  var ma = MA(period * 60); // 2 hours
+  var datapoints = { 'columns': [] };
+  var data = ['Data'];
+  var avg = ['Average'];
+  var stdDev = ['Deviation'];
+  var noisestart = 11 * 60;
+  var noisestop = 13 * 60;
+  var noise;
+  var base = 0;
+  for(i = 1; i <= SAMPLECOUNT; i++) {
+    if(i > noisestart && i < noisestop) {
+      noise = 1000;
+    } else {
+      noise = 400;
+    }
+    var val = base + (Math.random() * noise);
+    data.push(val);
+    ma.push(val);
+    avg.push(ma.movingAverage());
+    stdDev.push(ma.movingAverage() + ma.standardDeviation());
+  }
+  datapoints.columns.push(data);
+  datapoints.columns.push(avg);
+  datapoints.columns.push(stdDev);
+  res.json(datapoints);
+});
+
 router.get('/step/:p', function(req, res, next) {
   var period = req.params.p;
   var ma = MA(period * 60);

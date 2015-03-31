@@ -9,6 +9,7 @@ baseline.controller('baseform', function($scope, $http) {
   $scope.dataSel = {}; // selected option
   $scope.dataOpts = [
     {'val': 'flat', 'text': 'Flat'},
+    {'val': 'noise', 'text': 'Noise Bump'},
     {'val': 'bump', 'text': 'Bump'},
     {'val': 'step', 'text': 'Step'},
     {'val': 'wave', 'text': 'Wave'},
