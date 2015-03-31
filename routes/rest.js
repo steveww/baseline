@@ -15,9 +15,10 @@ function dataramp(rate, period) {
   var avg = ['Average'];
   var stdDev = ['Deviation'];
   var rampstart = 3 * 60;
+  var rampstop = 21 * 60;
   var base = 500;
   for(i = 1; i <= SAMPLECOUNT; i++) {
-    if(i > rampstart) {
+    if(i > rampstart && i < rampstop) {
       base += rate;
     }
     var val =  base + (Math.random() * 400);
