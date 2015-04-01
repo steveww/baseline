@@ -42,6 +42,9 @@ baseline.controller('baseform', function($scope, $http) {
     $http.get('/rest/' + dataType + '/' + period + '/' + $scope.tailSel).success(function(datapoints) {
       var chart = c3.generate({
         'bindto': '#graph',
+        'size': {
+          'height': 500
+          },
         'data': {
           'columns': datapoints.columns
           },
