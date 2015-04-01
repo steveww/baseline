@@ -165,6 +165,10 @@ router.get('/wave/:p/:t', function(req, res, next) {
     if(i % 240 == 0) {
       base = base == 1800 ? 800 : 1800;
     }
+    // override for long tail
+    if(i >= SAMPLECOUNT) {
+      base = 800;
+    }
     var val = base + (Math.random() * 400);
     data.push(val);
     ma.push(val);
